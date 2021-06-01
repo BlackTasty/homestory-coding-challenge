@@ -1,0 +1,108 @@
+.header-base {
+  height: 216px;
+  background-size: cover;
+  align-items: center;
+}
+
+.header {
+  margin-top: -16px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+.header-compare {
+  margin-top: 16px;
+}
+
+.artist-header-name {
+  color: white;
+  text-shadow: 1px 1px 6px black;
+  font-size: 4em;
+}
+
+.artist-header-sub {
+  color: rgb(220,255,220);
+  text-shadow: 1px 1px 3px black;
+  font-size: 2.5em;
+  margin-top: 32px;
+  margin-left: 16px;
+}
+
+img.artist-image {
+  width: 200px;
+  height: 200px;
+  margin-right: 8px;
+  margin-left: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  object-fit: cover;
+  border-radius: 200px;
+}
+
+img.artist-image-small {
+  width: 60px;
+  height: 60px;
+  margin: 8px;
+  object-fit: cover;
+  border-radius: 60px;
+}
+
+.text-two-columns {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 48px;
+  -moz-column-gap: 48px;
+  column-gap: 48px;
+}
+
+.headline-margin-large {
+  margin-top: 24px;
+}
+
+.headline-margin-small {
+  margin-top: 12px;
+}
+
+.similar-artists-holder {
+  display: flex;
+  padding: 8px;
+  overflow: auto;
+  overflow-y: hidden;
+}
+
+.similar-artists-holder-margin {
+  margin: 0 -9px;
+}
+
+.similar-artist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.divider-margin {
+  margin-top: 12px;
+}
+
+.similar-artists-main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.split-container-vertical {
+  flex-direction: row;
+}
+
+.split-container-horizontal {
+  flex-direction: column;
+}
+
+.align-right {
+  text-align: end;
+}
+
+.split-headline-margin {
+  margin-left: 24px;
+}

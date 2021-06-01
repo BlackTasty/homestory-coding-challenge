@@ -1,0 +1,30 @@
+<span class="flex-layout">
+  <h1 class="flex-center-headline">Top 10 artists for {{selectedCountryName}}</h1>
+  <span class="fill-space"></span>
+  <mat-form-field>
+    <mat-select [(value)]="selectedCountryIndex" (selectionChange)="onRefreshTopArtists()">
+      <mat-option *ngFor="let country of countries" [value]="country.countryCode">
+        {{country.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</span>
+<mat-divider></mat-divider>
+<mat-list>
+  <mat-list-item *ngFor="let artistRank of ranking" class="top-artists-item">
+    <mat-card class="full-width artist-card" [style.background-image]="artistRank.artist.imageCss">
+      <div class="flex-layout top-artist-content-container">
+        <h1 class="flex-center-headline rank">{{artistRank.rank}}.</h1>
+        <img class="top-artists-image" [src]="domSanitizer.bypassSecurityTrustUrl(artistRank.artist.imageUrl)"/>
+        <h2 class="flex-center-headline">{{artistRank.artist.name}}</h2>
+        <label class="flex-center-headline listeners">(Listeners: {{artistRank.artist.listeners | number}})</label>
+        <span class="fill-space"></span>
+        <button mat-stroked-button color="primary"
+          [routerLink]="'/details/' + artistRank.artist.mbid">
+          <mat-icon>info</mat-icon>
+          Details
+        </button>
+      </div>
+    </mat-card>
+  </mat-list-item>
+</mat-list>

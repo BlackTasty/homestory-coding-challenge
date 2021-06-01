@@ -1,0 +1,70 @@
+<div [style.background-image]="artist.imageCss" class="flex-layout header-base"
+  [ngClass]="!isCompareMode ? 'header' : 'header-compare'">
+  <img [src]="domSanitizer.bypassSecurityTrustUrl(artist.imageUrl)" class="artist-image">
+  <span>
+    <h1 class="artist-header-name">{{artist.name}}</h1>
+    <h2 *ngIf="artist.isOnTour" class="artist-header-sub">On tour!</h2>
+  </span>
+</div>
+<h1 class="headline-margin-large">Artist information</h1>
+<div class="text-two-columns">
+  <p [innerHtml]="artist.summary"></p>
+</div>
+<h2 class="headline-margin-small">Tags</h2>
+<mat-chip-list>
+  <mat-chip *ngFor="let tag of artist.tags">
+    {{tag}}
+  </mat-chip>
+</mat-chip-list>
+<mat-divider class="divider-margin"></mat-divider>
+<div class="flex-layout" [ngClass]="!isCompareMode ? 'split-container-vertical' : 'split-container-horizontal'">
+  <span [ngClass]="!isCompareMode ? 'split-flex-fill' : ''">
+    <h1 class="headline-margin-large split-headline-margin">Top albums</h1>
+    <mat-list>
+      <mat-list-item *ngFor="let album of artist.topAlbums" class="top-artists-item">
+        <mat-card class="full-width artist-card" [style.background-image]="album.albumCoverCss">
+          <div class="flex-layout top-artist-content-container">
+            <img class="top-artists-image" [src]="domSanitizer.bypassSecurityTrustUrl(album.albumCoverUrl)"/>
+            <h2 class="flex-center-headline">{{album.name}}</h2>
+            <span class="fill-space"></span>
+            <label class="flex-center-headline listeners align-right">Play count:<br>{{album.playCount | number}}</label>
+          </div>
+        </mat-card>
+      </mat-list-item>
+    </mat-list>
+  </span>
+  <span [ngClass]="!isCompareMode ? 'split-flex-fill' : ''">
+    <h1 class="headline-margin-large split-headline-margin">Top tracks</h1>
+    <mat-list>
+      <mat-list-item *ngFor="let track of artist.topTracks" class="top-artists-item">
+        <mat-card class="full-width artist-card">
+          <div class="flex-layout top-artist-content-container">
+            <h2 class="flex-center-headline">{{track.name}}</h2>
+            <span class="fill-space"></span>
+            <label class="flex-center-headline listeners align-right">Play count:<br>{{track.playCount | number}}</label>
+          </div>
+        </mat-card>
+      </mat-list-item>
+    </mat-list>
+  </span>
+</div>
+
+<mat-divider class="divider-margin"></mat-divider>
+<h1 class="headline-margin-large">Similar artists</h1>
+<div class="similar-artists-main-container">
+  <span class="similar-artists-holder"
+    [ngClass]="!isCompareMode ? 'similar-artists-holder-margin' : ''">
+    <mat-card *ngFor="let similar of artist.similarArtists" class="similar-artist-container">
+      <h2>{{similar.name}}</h2>
+      <img [src]="domSanitizer.bypassSecurityTrustUrl(similar.imageUrl)" class="artist-image">
+      <button mat-raised-button color="primary" *ngIf="similar.mbid; else noDetails"
+        [routerLink]="'/details/' + similar.mbid">
+        <mat-icon>info</mat-icon>
+        Details
+      </button>
+      <ng-template #noDetails>
+        <h3>No details found!</h3>
+      </ng-template>
+    </mat-card>
+  </span>
+</div>

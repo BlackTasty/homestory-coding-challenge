@@ -1,0 +1,7 @@
+.router-outlet-container {
+  padding: 16px;
+  height: calc(100% - 96px);
+  top: 64px;
+  position: relative;
+  overflow-y: auto;
+}

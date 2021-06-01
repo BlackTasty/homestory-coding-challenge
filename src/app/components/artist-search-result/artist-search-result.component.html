@@ -1,0 +1,28 @@
+
+<mat-form-field color="primary" appearance="standard" floatLabel="always">
+  <mat-label>Search artists</mat-label>
+  <input matInput [(ngModel)]="artistName" placeholder="Artist name"
+         (keydown.enter)="onSearchClicked()" (ngModelChange)="onQueryChanged()"/>
+  <button mat-icon-button matSuffix [attr.aria-label]="'Search content'"
+          [routerLink]="'/search/' + artistName">
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field>
+
+<h1>Search results for "{{currentSearch}}"</h1>
+<mat-list>
+  <mat-list-item *ngFor="let artist of results" class="top-artists-item">
+    <mat-card class="full-width artist-card" [style.background-image]="artist.imageCss">
+      <div class="flex-layout top-artist-content-container">
+        <img class="top-artists-image" [src]="domSanitizer.bypassSecurityTrustUrl(artist.imageUrl)"/>
+        <h2 class="flex-center-headline">{{artist.name}}</h2>
+        <label class="flex-center-headline listeners" *ngIf="!isCompareMode">(Listeners: {{artist.listeners | number}})</label>
+        <span class="fill-space"></span>
+        <button mat-stroked-button color="primary" (click)="onArtistSelected(artist.mbid)">
+          <mat-icon>info</mat-icon>
+          Details
+        </button>
+      </div>
+    </mat-card>
+  </mat-list-item>
+</mat-list>

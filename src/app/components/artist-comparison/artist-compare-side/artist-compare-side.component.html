@@ -1,0 +1,13 @@
+<mat-card>
+  <app-artist-search-result [isCompareMode]="true" (artistSelected)="onArtistSelected($event)" *ngIf="isSearching; else details">
+
+  </app-artist-search-result>
+  <ng-template #details>
+    <button mat-flat-button (click)="onBackToSearchClicked()">
+      <mat-icon>arrow_left</mat-icon>
+      Return to search
+    </button>
+    <mat-divider></mat-divider>
+    <app-artist-details [mbid]="mbid" [isCompareMode]="true"></app-artist-details>
+  </ng-template>
+</mat-card>

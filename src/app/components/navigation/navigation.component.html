@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="fixed-toolbar">
+  <label [routerLink]="'/'" class="home">MusicSearch</label>
+  <span class="fill-space"></span>
+  <button mat-raised-button matSuffix [attr.aria-label]="'Compare artists'"
+          [routerLink]="'/compare'" color="accent" class="compare-button">
+    <mat-icon>compare_arrows</mat-icon>
+    Compare artists
+  </button>
+  <mat-form-field color="primary" appearance="standard" floatLabel="always">
+    <mat-label>Search artists</mat-label>
+    <input matInput [(ngModel)]="searchInput" placeholder="Artist name"
+           (keydown.enter)="onSearchClicked()"/>
+    <button mat-icon-button matSuffix [attr.aria-label]="'Search content'"
+            [routerLink]="'/search/' + searchInput">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</mat-toolbar>

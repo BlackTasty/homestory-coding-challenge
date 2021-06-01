@@ -1,1 +1,81 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.flex-layout {
+  display: flex;
+}
+
+.flex-center-headline {
+  align-self: center;
+  margin-bottom: 0px !important;
+}
+
+img.artist-image-small {
+  width: 60px;
+  height: 60px;
+}
+
+img.artist-image-medium {
+  width: 100px;
+  height: 100px;
+}
+
+img.artist-image-large {
+  width: 140px;
+  height: 140px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-toolbar > mat-form-field {
+  margin-top: 8px;
+}
+
+img.top-artists-image {
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+  margin-left: 12px;
+  object-fit: cover;
+  border-radius: 48px;
+  align-items: center;
+}
+
+.top-artists-item {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.top-artist-content-container {
+  backdrop-filter: blur(8px);
+  padding: 16px;
+  align-items: center;
+  background-color: rgba(255,255,255,.6);
+}
+
+.listeners {
+  margin-left: 32px;
+}
+
+mat-card.artist-card {
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split-flex-fill {
+  flex: 1;
+  max-width: 50%;
+}
